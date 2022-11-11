@@ -6,8 +6,8 @@
 	 * https://github.com/dkh-gh/php-lib.mysql_connector
 	 */
 
-	include 'config.php';
-	include 'db_php/db.php';
+	include '/config-mysql_connector.php';
+	include $_m['lib_path'].'mysql_connector/db.php';
 
 	// connecting to mysql base
 	$connection = connect();
