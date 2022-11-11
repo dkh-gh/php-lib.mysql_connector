@@ -1,0 +1,25 @@
+{
+	"name": "mysql_connector",
+	"version": 0.11,
+	"source": {
+		"source": "github", 
+		"url": "dkh-gh/php-lib.mysql_connector", 
+		"branch": "main"
+	},
+	"requirements": [],
+	"structure": [
+		"config-mysql_connector.php",
+		"config.json",
+		"db.php",
+		"db_config.php",
+		"mysql_connector.js",
+		"mysql_connector.php",
+		"readme.md"
+	],
+	"include_needed": false,
+	"developers": {
+		"creator": {
+			"name": "dkh"
+		}
+	}
+}
