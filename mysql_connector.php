@@ -107,7 +107,7 @@
 	 		$data = json_decode($data, true);
 			$q = dbQuery("UPDATE `data` SET ";
 			for($i = 0; $i < count($data['key'])-1; $i++) {
-				$q .= "`".$data['key'][$i]."` = '".$data['value'][$i]."', "
+				$q .= "`".$data['key'][$i]."` = '".$data['value'][$i]."', ";
 			}
 			$q .= "`".$data['key'][count($data['key'])-1]."` = '".$data['value'][count($data['key'])-1]."' " 
 				."' WHERE `user_id` = '".$user['id']
