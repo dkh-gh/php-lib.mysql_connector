@@ -1,17 +1,17 @@
 {
 	"name": "mysql_connector",
-	"version": 0.15101,
+	"version": 0.16,
 	"source": {
 		"source": "github", 
 		"url": "dkh-gh/php-lib.mysql_connector", 
 		"branch": "dev"
 	},
-	"requirements": [],
+	"requirements": [
+		{"name": "db", "url": "ekkfd/php-lib.db", "source": "github", "branch": "dev"}
+	],
 	"structure": [
 		"config-mysql_connector-EXAMPLE.php",
 		"config.json",
-		"db.php",
-		"db_config.php",
 		"mysql_connector.js",
 		"mysql_connector.php",
 		"readme.md"
