@@ -55,7 +55,7 @@
 
 	function connect() {
 		try {
-			$connection = $_db['connect']();
+			$connection = $GLOBALS['$_db']['connect']();
 		}
 		catch(Exception $e) {
 			$connection = false;
@@ -65,7 +65,7 @@
 
 	function auth_user() {
 		if(isset($_POST['skey'])) {
-			$user = $_db['get_line'](
+			$user = $GLOBALS['$_db']['get_line'](
 				'users',
 				'skey',
 				$_POST['skey']
@@ -76,7 +76,7 @@
 				return false;
 		}
 		else if(isset($_POST['user']) && isset($_POST['passw'])) {
-			$user = $_db['filter'](
+			$user = $GLOBALS['$_db']['filter'](
 				'users',
 				[
 					'name' => $_POST['user'],
@@ -100,7 +100,7 @@
 			$ansv = $user;
 		}
 		elseif($ask_type == 'update_user_dataset') {
-			$q = $_db['query']("SELECT * FROM `data` WHERE `user_id` = "
+			$q = $GLOBALS['$_db']['query']("SELECT * FROM `data` WHERE `user_id` = "
 				.$user['id']." ORDER BY `timestamp` DESC");
 	 		$ret = mysqli_fetch_assoc($q);
 	 		$data = json_decode($data, true);
@@ -111,21 +111,21 @@
 			$q .= "`timestamp` = '".$_POST['timestamp']."' "
 				." WHERE `user_id` = '".$user['id']."'"
 				." AND `timestamp` = '".$ret['timestamp']."'";
-			$q = $_db['query']($q);
+			$q = $GLOBALS['$_db']['query']($q);
 	 		$ansv = $q;
 		}
 		elseif($ask_type == 'get_users_list') {
-			$ansv = $_db['get_lines']('users', '*', '*');
+			$ansv = $GLOBALS['$_db']['get_lines']('users', '*', '*');
 			for ($i=0; $i < count($ansv); $i++) { 
 				unset($ansv[$i]['passw']);
 				unset($ansv[$i]['skey']);
 			}
 		}
 		elseif($ask_type == 'get_user_dataset') {
-			$ansv = $_db['get_lines']('data', 'user_id', $_POST['data']);
+			$ansv = $GLOBALS['$_db']['get_lines']('data', 'user_id', $_POST['data']);
 		}
 		elseif($ask_type == 'get_user_dataset_last') {
-			$q = $_db['query']("SELECT * FROM `data` WHERE `user_id` = "
+			$q = $GLOBALS['$_db']['query']("SELECT * FROM `data` WHERE `user_id` = "
 				.$_POST['data']." ORDER BY `timestamp` DESC");
 	 		$ansv = mysqli_fetch_assoc($q);
 		}

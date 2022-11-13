@@ -1,6 +1,6 @@
 {
 	"name": "mysql_connector",
-	"version": 0.16,
+	"version": 0.161,
 	"source": {
 		"source": "github", 
 		"url": "dkh-gh/php-lib.mysql_connector", 
