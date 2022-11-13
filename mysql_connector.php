@@ -7,6 +7,7 @@
 	 */
 
 	include 'config-mysql_connector.php';
+	include '../db/db.php';
 
 	// connecting to mysql base
 	$connection = connect();
